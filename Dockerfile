@@ -1,4 +1,4 @@
-FROM golang:1.16-alpine AS build
+FROM golang:alpine3.13 AS build
 RUN apk add --no-cache git wget build-base shellcheck
 
 RUN mkdir /overlay
@@ -14,10 +14,10 @@ RUN wget http://www.sentex.net/~mwandel/jhead/jhead-$JHEAD_VERSION.tar.gz \
     && make install
 
 ENV GO111MODULE=on
-RUN go get github.com/temq09/gphotos-cdp@e68a877ee73f186575273116d1f608f6652cc3f3
+RUN go get github.com/temq09/gphotos-cdp@ca6b9b0db6d98b6271db6aa52137da5dd7d81542
 
 
-FROM oznu/s6-alpine:3.11
+FROM oznu/s6-alpine:3.13
 LABEL maintainer="Jake Wharton <docker@jakewharton.com>"
 
 ENV \
