@@ -14,7 +14,7 @@ RUN wget http://www.sentex.net/~mwandel/jhead/jhead-$JHEAD_VERSION.tar.gz \
     && make install
 
 ENV GO111MODULE=on
-RUN go get github.com/temq09/gphotos-cdp@ca6b9b0db6d98b6271db6aa52137da5dd7d81542
+RUN go get github.com/temq09/gphotos-cdp@66ff877c26656b380c284384b7835b723b792a20
 
 
 FROM oznu/s6-alpine:3.13
